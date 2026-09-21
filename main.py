@@ -60,11 +60,29 @@ QUESTIONS = [
 ]
 
 
+# Demo Login Credentials
+DEMO_USERNAME = "admin"
+DEMO_PASSWORD = "password123"
+
+
 def display_banner():
     """Displays a welcoming banner for the examination system."""
     print("=" * 55)
     print("        ONLINE EXAMINATION SYSTEM        ")
     print("=" * 55)
+
+
+def login():
+    """Authenticates the user using demo credentials."""
+    print("\n--- Candidate Login ---")
+    print("(Demo Credentials: username = admin, password = password123)")
+    while True:
+        username = input("Enter username: ").strip()
+        password = input("Enter password: ").strip()
+        if username == DEMO_USERNAME and password == DEMO_PASSWORD:
+            print("Login successful!\n")
+            return True
+        print("Invalid username or password. Please try again.\n")
 
 
 def get_student_info():
@@ -110,25 +128,27 @@ def conduct_exam(questions):
 
 
 def display_results(candidate_name, score, total):
-    """Displays the final examination score and performance evaluation."""
+    """Displays the final examination result summary."""
+    incorrect = total - score
     percentage = (score / total) * 100 if total > 0 else 0
     passed = percentage >= 50
 
     print("\n" + "=" * 55)
-    print("               EXAM RESULTS               ")
+    print("            EXAM RESULT SUMMARY            ")
     print("=" * 55)
-    print(f"Candidate Name : {candidate_name}")
-    print(f"Total Questions: {total}")
-    print(f"Correct Answers: {score}")
-    print(f"Wrong Answers  : {total - score}")
-    print(f"Score          : {score}/{total} ({percentage:.1f}%)")
-    print(f"Status         : {'PASSED' if passed else 'FAILED'}")
+    print(f"Candidate Name    : {candidate_name}")
+    print(f"Total questions   : {total}")
+    print(f"Correct answers   : {score}")
+    print(f"Incorrect answers : {incorrect}")
+    print(f"Final score       : {score}/{total} ({percentage:.1f}%)")
+    print(f"Status            : {'PASSED' if passed else 'FAILED'}")
     print("=" * 55)
 
 
 def main():
     """Main execution function."""
     display_banner()
+    login()
     candidate_name = get_student_info()
     score, total = conduct_exam(QUESTIONS)
     display_results(candidate_name, score, total)
