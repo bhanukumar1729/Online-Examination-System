@@ -128,19 +128,20 @@ def conduct_exam(questions):
 
 
 def display_results(candidate_name, score, total):
-    """Displays the final examination score and performance evaluation."""
+    """Displays the final examination result summary."""
+    incorrect = total - score
     percentage = (score / total) * 100 if total > 0 else 0
     passed = percentage >= 50
 
     print("\n" + "=" * 55)
-    print("               EXAM RESULTS               ")
+    print("            EXAM RESULT SUMMARY            ")
     print("=" * 55)
-    print(f"Candidate Name : {candidate_name}")
-    print(f"Total Questions: {total}")
-    print(f"Correct Answers: {score}")
-    print(f"Wrong Answers  : {total - score}")
-    print(f"Score          : {score}/{total} ({percentage:.1f}%)")
-    print(f"Status         : {'PASSED' if passed else 'FAILED'}")
+    print(f"Candidate Name    : {candidate_name}")
+    print(f"Total questions   : {total}")
+    print(f"Correct answers   : {score}")
+    print(f"Incorrect answers : {incorrect}")
+    print(f"Final score       : {score}/{total} ({percentage:.1f}%)")
+    print(f"Status            : {'PASSED' if passed else 'FAILED'}")
     print("=" * 55)
 
 
