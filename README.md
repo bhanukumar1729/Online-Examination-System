@@ -12,6 +12,7 @@ The **Online Examination System** provides a clean command-line interface for co
 
 ## 🚀 Features
 
+- **Candidate Login:** Simple authentication required before the exam begins (Demo credentials: username `admin`, password `password123`).
 - **Candidate Registration:** Prompts the examinee for their name before starting.
 - **Multiple-Choice Questions:** Formatted questions with 4 selectable choices (`A`, `B`, `C`, `D`).
 - **Input Validation:** Rejects invalid option entries and allows retries without breaking. Case-insensitive (accepts both uppercase and lowercase letters).
@@ -56,6 +57,7 @@ py --version
    *(On Windows systems using the Python launcher, you can also use `py main.py`)*
 
 3. Follow the on-screen prompts:
+   - Log in using the demo credentials (Username: `admin`, Password: `password123`).
    - Enter your name.
    - Type your selected option (`A`, `B`, `C`, or `D`) for each question and press Enter.
    - View your final score summary!
